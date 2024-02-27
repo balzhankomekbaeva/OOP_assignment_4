@@ -9,13 +9,16 @@ import lombok.*;
 @Setter
 @Data
 @Entity
-@Table(name = "Enrollment")
+@Table(name = "enrollment", schema = "public")
 
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "enrollment_id")
     private int id;
+    @Column(name = "student_id")
     private int student_id;
+    @Column(name = "course_id")
     private int course_id;
 
 

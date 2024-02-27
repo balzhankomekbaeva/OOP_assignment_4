@@ -8,15 +8,20 @@ import lombok.*;
 @Setter
 @Data
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private int id;
+    @Column(name = "student_name")
     private String name;
+    @Column(name = "student_surname")
     private String surname;
+    @Column(name = "student_age")
     private int age;
+    @Column(name = "student_email")
     private String email;
 
     @Override

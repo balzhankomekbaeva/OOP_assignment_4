@@ -9,12 +9,15 @@ import lombok.*;
 @Setter
 @Data
 @Entity
-@Table(name = "Courses")
+@Table(name = "Courses", schema = "public")
 public class Courses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "course_id")
     private int id;
+    @Column(name = "course_name")
     private String courseName;
+    @Column(name = "teacher_id")
     private int teacher_id;
 
     @Override
