@@ -31,7 +31,14 @@ public class StudentsService implements StudentServiceInterface {
     }
 
     @Override
-    public List<Student> getBySurname(String surname) {
-        return null;
+    public Student update(Student student) {
+        return repo.save(student);
     }
+
+    @Override
+    public void delete(int id)
+    {
+        repo.deleteById(id);
+    }
+
 }
