@@ -20,7 +20,7 @@ public class StudentController {
     public List<Student> getAll() {
         return service.getAll();
     }
-    @GetMapping("/{student_id}")
+    @GetMapping("/studentById/{student_id}")
     public ResponseEntity<Student> getById(@PathVariable("student_id") int id)
     {
         Student student = service.getById(id);
@@ -43,6 +43,11 @@ public class StudentController {
     {
         student.setId(student_id);
         return service.update(student);
+    }
+    @GetMapping("/getStudentBySurname/{student_surname}")
+    public List<Student> getBySurname(@PathVariable("student_surname") String surname)
+    {
+        return service.getBySurname(surname);
     }
     @DeleteMapping("/deleteStudent")
     public void delete(@RequestParam int student_id)

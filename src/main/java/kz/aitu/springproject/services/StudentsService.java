@@ -40,5 +40,9 @@ public class StudentsService implements StudentServiceInterface {
     {
         repo.deleteById(id);
     }
-
+    @Override
+    public List<Student> getBySurname(String surname)
+    {
+        return repo.findBySurname(surname);
+    }
 }
