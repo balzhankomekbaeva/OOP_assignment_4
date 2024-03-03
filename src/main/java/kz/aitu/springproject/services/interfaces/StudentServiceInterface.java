@@ -9,6 +9,7 @@ public interface StudentServiceInterface {
     Student getById(int id);
     Student create(Student student);
     Student update(Student student);
-
     void delete(int id);
+    List<Student> getBySurname(String surname);
+    Student getByEmail(String email);
 }

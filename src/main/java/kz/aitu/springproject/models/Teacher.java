@@ -2,6 +2,7 @@ package kz.aitu.springproject.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenerationTime;
 
 @Data
 @Entity
@@ -20,7 +21,6 @@ public class Teacher {
     private int age;
     @Column(name = "teacher_email")
     private String email;
-
     @Override
     public String toString() {
         return id + " " +  name + " " + surname + " " + age + " " + email;

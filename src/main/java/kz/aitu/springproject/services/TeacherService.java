@@ -1,5 +1,4 @@
 package kz.aitu.springproject.services;
-
 import kz.aitu.springproject.models.Teacher;
 import kz.aitu.springproject.repositories.TeacherRepositoryInterface;
 import kz.aitu.springproject.services.interfaces.TeacherServiceInterface;
@@ -31,7 +30,18 @@ public class TeacherService implements TeacherServiceInterface {
     }
 
     @Override
-    public List<Teacher> getBySurname(String surname) {
-        return null;
+    public Teacher update(Teacher teacher) {
+        return repo.save(teacher);
     }
+
+    @Override
+    public void delete(int id)
+    {
+        repo.deleteById(id);
+    }
+    public List<Teacher> getBySurname(String surname) {
+        return repo.findBySurname(surname);
+    }
+
+
 }

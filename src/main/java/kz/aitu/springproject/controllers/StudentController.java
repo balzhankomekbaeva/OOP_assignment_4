@@ -4,7 +4,6 @@ import kz.aitu.springproject.services.interfaces.StudentServiceInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -20,7 +19,7 @@ public class StudentController {
     public List<Student> getAll() {
         return service.getAll();
     }
-    @GetMapping("/{student_id}")
+    @GetMapping("/studentById/{student_id}")
     public ResponseEntity<Student> getById(@PathVariable("student_id") int id)
     {
         Student student = service.getById(id);
@@ -43,6 +42,21 @@ public class StudentController {
     {
         student.setId(student_id);
         return service.update(student);
+    }
+    @GetMapping("/getStudentBySurname/{student_surname}")
+    public List<Student> getBySurname(@PathVariable("student_surname") String surname)
+    {
+        return service.getBySurname(surname);
+    }
+    @GetMapping("/getStudentByEmail/{student_email}")
+    public ResponseEntity<Student> getByEmail(@PathVariable("student_email") String email)
+    {
+        Student student = service.getByEmail(email);
+        if(student == null)
+        {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND); //404
+        }
+        return new ResponseEntity<>(student, HttpStatus.OK); //200
     }
     @DeleteMapping("/deleteStudent")
     public void delete(@RequestParam int student_id)
