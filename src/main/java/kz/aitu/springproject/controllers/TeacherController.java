@@ -44,8 +44,8 @@ public class TeacherController {
         teacher.setId(teacher_id);
         return service.update(teacher);
     }
-    @DeleteMapping("/deleteTeacher")
-    public void delete(@RequestParam int teacher_id)
+    @DeleteMapping("/deleteTeacher/{teacher_id}")
+    public void delete(@PathVariable int teacher_id)
     {
         service.delete(teacher_id);
     }

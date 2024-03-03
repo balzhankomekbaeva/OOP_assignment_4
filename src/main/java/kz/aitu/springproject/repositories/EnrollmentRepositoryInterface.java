@@ -1,4 +1,8 @@
 package kz.aitu.springproject.repositories;
 
-public interface EnrollmentRepositoryInterface {
+import kz.aitu.springproject.models.Enrollment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnrollmentRepositoryInterface extends JpaRepository<Enrollment, Integer> {
+
 }

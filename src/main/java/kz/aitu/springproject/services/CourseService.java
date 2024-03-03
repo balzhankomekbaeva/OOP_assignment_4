@@ -12,11 +12,9 @@ import java.util.List;
 @Service
 public class CourseService implements CourseServiceInterface {
     private CourseRepositoryInterface repo;
-    private TeacherRepositoryInterface trepo;
     public CourseService(CourseRepositoryInterface repo, TeacherRepositoryInterface trepo)
     {
         this.repo = repo;
-        this.trepo = trepo;
     }
 
     @Override

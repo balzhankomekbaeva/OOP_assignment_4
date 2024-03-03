@@ -58,8 +58,8 @@ public class StudentController {
         }
         return new ResponseEntity<>(student, HttpStatus.OK); //200
     }
-    @DeleteMapping("/deleteStudent")
-    public void delete(@RequestParam int student_id)
+    @DeleteMapping("/deleteStudent/{student_id}")
+    public void delete(@PathVariable int student_id)
     {
         service.delete(student_id);
     }
